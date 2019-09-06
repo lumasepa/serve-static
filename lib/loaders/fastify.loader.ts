@@ -17,13 +17,13 @@ export class FastifyLoader extends AbstractLoader {
       'ServeStaticModule',
       () => require('fastify-static')
     );
-    const { setHeaders, redirect, ...send } =
+    const { setHeaders, redirect, prefix, ...send } =
       options.serveStaticOptions || ({} as any);
     const clientPath = options.rootPath;
     const indexFilePath = this.getIndexFilePath(clientPath);
-
     app.register(fastifyStatic, {
       root: clientPath,
+      prefix,
       setHeaders,
       redirect,
       send

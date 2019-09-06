@@ -12,6 +12,7 @@ export interface ServeStaticModuleOptions {
    * Passed down to the underlying either `express.static` or `fastify-static.send`
    */
   serveStaticOptions?: {
+    prefix?: string;
     /**
      * Enable or disable setting Cache-Control response header, defaults to true.
      * Disabling this will ignore the immutable and maxAge options.
